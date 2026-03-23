@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hi I'm MITHUN SHANKAR - Futuristic Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000; /* Black background */
+            color: #ffffff; /* White text */
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Futuristic animated background with scanning lines and grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 98%, #ffffff 100%),
+                linear-gradient(0deg, transparent 98%, #ffffff 100%);
+            background-size: 50px 100%, 100% 50px;
+            animation: scan 20s linear infinite, gridMove 60s linear infinite;
+            z-index: -2;
+            opacity: 0.08;
+        }
+        @keyframes scan {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100vw) translateY(100vh); }
+        }
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        /* White glow text */
+        .neon-glow {
+            text-shadow: 
+                0 0 5px #ffffff,
+                0 0 10px #ffffff,
+                0 0 20px #ffffff,
+                0 0 40px #ffffff,
+                0 0 80px rgba(255,255,255,0.3);
+            animation: glowPulse 2s ease-in-out infinite alternate;
+        }
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff; }
+            to { text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 80px rgba(255,255,255,0.3); }
+        }
+        /* Glitch effect on hover */
+        h1:hover {
+            animation: glitch 0.3s linear infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26,26,26,0.95); /* Charcoal nav */
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            padding: 20px 0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        nav a {
+            color: #ffffff; /* White links */
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+        nav a:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        section {
+            min-height: 100vh;
+            padding: 120px 10% 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffffff; /* White headings */
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        /* Skills/Interests grid with charcoal cards */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .interest-card {
+            background: rgba(26,26,26,0.8); /* Charcoal cards */
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+        .interest-card:hover {
+            box-shadow: 0 0 40px rgba(255,255,255,0.4), inset 0 0 20px rgba(255,255,255,0.1);
+            transform: translateY(-10px);
+        }
+        .interest-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        /* Contact form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(26,26,26,0.9); /* Charcoal inputs */
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        input::placeholder, textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.8);
+        }
+        button {
+            background: transparent;
+            border: 2px solid #ffffff; /* White button border */
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background: #ffffff;
+            color: #000000; /* Black text on white bg */
+            box-shadow: 0 0 30px rgba(255,255,255,0.6);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            section { padding: 100px 5%; }
+            nav ul { flex-direction: column; gap: 10px; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="neon-glow">Mithun Shankar</h1>
+        <p>Full-Stack Developer from Bengaluru | Crafting futuristic digital experiences in the cyber age.</p>
+    </section>
+
+    <section id="about">
+        <h2 class="neon-glow">About Me</h2>
+        <p>Passionate developer based in Bengaluru, Karnataka. I specialize in building immersive web applications with cutting-edge technologies. When not coding, I dive into gaming realms, explore new horizons through travel, and catch the thrill of sports.</p>
+    </section>
+
+    <section id="skills">
+        <h2 class="neon-glow">Skills</h2>
+        <div class="interests-grid">
+            <div class="interest-card">
+                <h3>HTML/CSS/JS</h3>
+                <p>Mastery in vanilla web tech with futuristic effects</p>
+            </div>
+            <div class="interest-card">
+                <h3>React & Node.js</h3>
+                <p>Building dynamic, scalable full-stack apps</p>
+            </div>
+            <div class="interest-card">
+                <h3>Python & AI</h3>
+                <p>Machine learning and automation specialist</p>
+            </div>
+            <div class="interest-card">
+                <h3>UI/UX Design</h3>
+                <p>Cyberpunk-inspired interfaces and animations</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests">
+        <h2 class="neon-glow">Interests</h2>
+        <div class="interests-grid">
+            <div class="interest-card">
+                <h3>Playing Video Games</h3>
+                <p>Immersing in virtual worlds, from cyberpunk shooters to epic adventures—fueling my creative edge.</p>
+            </div>
+            <div class="interest-card">
+                <h3>Travelling</h3>
+                <p>Exploring new cities and cultures worldwide, seeking inspiration for innovative designs.</p>
+            </div>
+            <div class="interest-card">
+                <h3>Watching Sports</h3>
+                <p>Thrilled by cricket, football, and more—strategy and adrenaline mirror perfect code execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="neon-glow">Contact</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Transmit Message</button>
+        </form>
+        <p style="text-align: center; margin-top: 30px; opacity: 0.7;">mithun@bengaluru.dev | Bengaluru, Karnataka, IN</p>
+    </section>
+<form
+  action="https://formspree.io/f/mojnbawj"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+</body>
+</html>
+
